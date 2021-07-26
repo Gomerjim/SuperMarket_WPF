@@ -1,0 +1,70 @@
+﻿<Window x:Class="SuperMarketAPI.Management"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SuperMarketAPI"
+        mc:Ignorable="d"
+        Title="Management"
+        Height="700"
+        Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+            <RowDefinition Height="70">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1"
+                    Margin="5">
+            <TextBox Text="{Binding Path=WindowName, Mode=OneWay}"
+                     BorderThickness="0"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Top"
+                     FontSize="20">
+            </TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Margin="25">
+            <Button Content="{Binding Path=Button1, Mode=OneWay}"
+                    Style="{StaticResource ButtonTemplate}"
+                    Margin="0,5">
+            </Button>
+            <Button Content="{Binding Path=Button2, Mode=OneWay}"
+                    Style="{StaticResource ButtonTemplate}"
+                    Margin="0,5">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    Height="100"
+                    Margin="25">
+            <Button Content="Adicionar"
+                    Style="{StaticResource ButtonTemplate}"
+                    Margin="5,0">
+            </Button>
+            <Button Content="Editar"
+                    Style="{StaticResource ButtonTemplate}"
+                    Margin="5,0">
+            </Button>
+            <Button Content="Remover"
+                    Style="{StaticResource ButtonTemplate}"
+                    Margin="5,0">
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="50">
+            <DataGrid x:Name="ManagementDataGrid"
+                      AutoGenerateColumns="False"
+                      ColumnWidth="*">
+                
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
