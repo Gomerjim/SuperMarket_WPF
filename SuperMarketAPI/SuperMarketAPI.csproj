@@ -10,6 +10,7 @@
     <RootNamespace>SuperMarketAPI</RootNamespace>
     <AssemblyName>SuperMarketAPI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -79,6 +80,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\Category.cs" />
+    <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Seller.cs" />
     <Compile Include="Data\SuperContext.cs" />
     <Compile Include="Data\User.cs" />
@@ -92,9 +95,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202107290917575_AddProductAndCategory.cs" />
+    <Compile Include="Migrations\202107290917575_AddProductAndCategory.designer.cs">
+      <DependentUpon>202107290917575_AddProductAndCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DataGridItem.cs" />
     <Compile Include="Models\Word.cs" />
-    <Compile Include="ViewModels\WordViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\Management.xaml.cs">
       <DependentUpon>Management.xaml</DependentUpon>
     </Compile>
@@ -111,6 +119,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202107290917575_AddProductAndCategory.resx">
+      <DependentUpon>202107290917575_AddProductAndCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -120,6 +131,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="snippets.rtf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

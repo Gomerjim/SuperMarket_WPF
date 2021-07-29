@@ -1,32 +1,22 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SuperMarketAPI.Models
 {
-    public class Word : INotifyPropertyChanged
+    public class Word
     {
-        public Word(string[] listOfWords)
+        public string Name
         {
-            _name = listOfWords;
+            get { return name; }
+            set { name = value; }
         }
 
-        private string[] _name;
-        public string[] Name
+        private string name;
+
+        public Word(string name)
         {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                OnPropertyChanged();
-            }
+            this.name = name;
         }
 
-        #region INotifyProperty Changed Members
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
     }
 }

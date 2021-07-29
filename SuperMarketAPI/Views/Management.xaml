@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1"
                     Margin="5">
-            <TextBox Text="{Binding Word.Name[0], Mode=OneWay}"
+            <TextBox Text="{Binding Words[0].Name, Mode=OneWay}"
                      BorderThickness="0"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Top"
@@ -30,11 +30,11 @@
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Margin="25">
-            <Button Content="{Binding Word.Name[1], Mode=OneWay}"
+            <Button Content="{Binding Words[1].Name, Mode=OneWay}"
                     Style="{StaticResource ButtonTemplate}"
                     Margin="0,5">
             </Button>
-            <Button Content="{Binding Word.Name[2], Mode=OneWay}"
+            <Button Content="{Binding Words[2].Name, Mode=OneWay}"
                     Style="{StaticResource ButtonTemplate}"
                     Margin="0,5">
             </Button>
@@ -61,9 +61,11 @@
                     Grid.Row="1"
                     Margin="50">
             <DataGrid x:Name="ManagementDataGrid"
-                      AutoGenerateColumns="False"
+                      Foreground="Green"
+                      ItemsSource="{Binding Sellers}"
+                      AutoGenerateColumns="True"
+                      AutoGeneratingColumn="OnAutoGeneratingColumn"
                       ColumnWidth="*">
-                
             </DataGrid>
         </StackPanel>
     </Grid>

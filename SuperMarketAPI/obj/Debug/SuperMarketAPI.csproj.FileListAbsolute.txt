@@ -25,3 +25,5 @@ C:\Users\malmeida\source\repos\SuperMarketAPI\bin\Debug\EntityFramework.xml
 C:\Users\malmeida\source\repos\SuperMarketAPI\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\malmeida\source\repos\SuperMarketAPI\obj\Debug\Views\Management.g.cs
 C:\Users\malmeida\source\repos\SuperMarketAPI\obj\Debug\Views\Management.baml
+C:\Users\malmeida\source\repos\SuperMarketAPI\obj\Debug\SuperMarketAPI.csproj.AssemblyReference.cache
+C:\Users\malmeida\source\repos\SuperMarketAPI\obj\Debug\SuperMarketAPI.Migrations.AddProductAndCategory.resources
