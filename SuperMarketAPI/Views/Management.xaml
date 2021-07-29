@@ -5,68 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperMarketAPI"
         mc:Ignorable="d"
-        Title="Management"
         Height="700"
-        Width="1200">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition />
-            <RowDefinition Height="70">
-            </RowDefinition>
-        </Grid.RowDefinitions>
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        fw:AcrylicWindow.Enabled="True"
+        fw:AcrylicWindow.AcrylicWindowStyle="None">
+    <Grid fw:PointerTracker.Enabled="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="300" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1"
-                    Margin="5">
-            <TextBox Text="{Binding Words[0].Name, Mode=OneWay}"
-                     BorderThickness="0"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Top"
-                     FontSize="20">
-            </TextBox>
+        <StackPanel Grid.Row="1"
+                    Margin="0,25"
+                    Orientation="Horizontal">
+            <Button Style="{StaticResource ButtonTemplate}">
+                <materialDesign:PackIcon Kind="Home"
+                                         VerticalAlignment="Top" />
+            </Button>
+            <TextBlock Text="Home"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Margin="5,7.5" />
         </StackPanel>
         <StackPanel Grid.Row="1"
-                    Margin="25">
-            <Button Content="{Binding Words[1].Name, Mode=OneWay}"
-                    Style="{StaticResource ButtonTemplate}"
-                    Margin="0,5">
+                    Margin="0,100"
+                    Orientation="Horizontal">
+            <Button Style="{StaticResource ButtonTemplate}">
+                <materialDesign:PackIcon Kind="Human" 
+                                         VerticalAlignment="Top"/>
             </Button>
-            <Button Content="{Binding Words[2].Name, Mode=OneWay}"
-                    Style="{StaticResource ButtonTemplate}"
-                    Margin="0,5">
+            <TextBlock Text="{Binding Words[1].Name, Mode=OneWay}"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Margin="5,7.5" />
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Margin="0,145"
+                    Orientation="Horizontal">
+            <Button Style="{StaticResource ButtonTemplate}">
+                <materialDesign:PackIcon Kind="TextBoxMultipleOutline"
+                                         VerticalAlignment="Top" />
             </Button>
+            <TextBlock Text="{Binding Words[2].Name, Mode=OneWay}"
+                       VerticalAlignment="Top"
+                       FontSize="18"
+                       Margin="5,7.5" />
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
-                    VerticalAlignment="Bottom"
-                    Height="100"
-                    Margin="25">
-            <Button Content="Adicionar"
-                    Style="{StaticResource ButtonTemplate}"
-                    Margin="5,0">
+                    VerticalAlignment="Bottom">
+            <Button Style="{StaticResource ButtonTemplate}"
+                    Height="30"
+                    Width="30">
+                <materialDesign:PackIcon Kind="Add"
+                                         VerticalAlignment="Top"
+                                         Height="25"
+                                         Width="25"/>
             </Button>
-            <Button Content="Editar"
-                    Style="{StaticResource ButtonTemplate}"
-                    Margin="5,0">
+            <Button Style="{StaticResource ButtonTemplate}"
+                    Height="30"
+                    Width="30">
+                <materialDesign:PackIcon Kind="Delete"
+                                         VerticalAlignment="Top"
+                                         Height="25"
+                                         Width="25" />
             </Button>
-            <Button Content="Remover"
-                    Style="{StaticResource ButtonTemplate}"
-                    Margin="5,0">
+            <Button Style="{StaticResource ButtonTemplate}"
+                    Height="30"
+                    Width="30">
+                <materialDesign:PackIcon Kind="Edit"
+                                         VerticalAlignment="Top"
+                                         Height="25"
+                                         Width="25" />
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="1"
-                    Grid.Row="1"
-                    Margin="50">
-            <DataGrid x:Name="ManagementDataGrid"
-                      Foreground="Green"
-                      ItemsSource="{Binding Sellers}"
-                      AutoGenerateColumns="True"
-                      AutoGeneratingColumn="OnAutoGeneratingColumn"
-                      ColumnWidth="*">
-            </DataGrid>
-        </StackPanel>
+        <Grid Grid.Column="2"
+              Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="1"
+                        Margin="5">
+                <TextBox Text="{Binding Words[0].Name, Mode=OneWay}"
+                         BorderThickness="0"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Top"
+                         FontSize="20">
+                </TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1"
+                        Grid.Row="1"
+                        Margin="50">
+                <DataGrid x:Name="ManagementDataGrid"
+                          Foreground="Green"
+                          ItemsSource="{Binding Sellers}"
+                          AutoGenerateColumns="True"
+                          AutoGeneratingColumn="OnAutoGeneratingColumn"
+                          ColumnWidth="*">
+                </DataGrid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

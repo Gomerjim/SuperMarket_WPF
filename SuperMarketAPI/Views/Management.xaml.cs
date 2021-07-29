@@ -41,7 +41,7 @@ namespace SuperMarketAPI
 
         private void OnAutoGeneratingColumn(object sender, System.Windows.Controls.DataGridAutoGeneratingColumnEventArgs e)
         {
-            if(columns.Count==3)
+            if (columns.Count == 3)
             {
                 foreach (var item in columns)
                 {
