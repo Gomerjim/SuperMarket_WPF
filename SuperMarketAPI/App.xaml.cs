@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SuperMarketAPI.Data;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,11 @@ namespace SuperMarketAPI
     /// </summary>
     public partial class App : Application
     {
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    services.AddSingleton<SuperContext>();
+        //}
     }
+
+
 }

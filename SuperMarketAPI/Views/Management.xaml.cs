@@ -31,6 +31,7 @@ namespace SuperMarketAPI
                     new Word("Botao1"),
                     new Word("Botao2")
                 };
+                db.Database.EnsureCreated();
                 var tabela = db.Sellers.ToList();
 
                 ViewModel viewModel = new ViewModel(words, tabela);
