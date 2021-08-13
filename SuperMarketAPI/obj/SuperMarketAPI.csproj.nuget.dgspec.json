@@ -41,10 +41,6 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
             "FluentWPF": {
               "target": "Package",
               "version": "[0.9.0, )"

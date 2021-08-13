@@ -14,44 +14,51 @@
         fw:AcrylicWindow.AcrylicWindowStyle="None">
     <Grid fw:PointerTracker.Enabled="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300" />
+            <ColumnDefinition x:Name="ListViewColumn"
+                Width="300" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1"
                     Margin="0,25"
                     Orientation="Horizontal">
-            <Button Style="{StaticResource ButtonTemplate}">
-                <materialDesign:PackIcon Kind="Home"
-                                         VerticalAlignment="Top" />
-            </Button>
-            <TextBlock Text="Home"
-                       VerticalAlignment="Top"
-                       FontSize="18"
-                       Margin="5,7.5" />
+            <ListView>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Home"
+                                                 Margin="10" />
+                        <TextBlock Text="Home"
+                                   VerticalAlignment="Center"
+                                   FontSize="18"
+                                   Width="{Binding ListViewSize}" />
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Margin="0,100"
                     Orientation="Horizontal">
-            <Button Style="{StaticResource ButtonTemplate}">
-                <materialDesign:PackIcon Kind="Human" 
-                                         VerticalAlignment="Top"/>
-            </Button>
-            <TextBlock Text="{Binding Words[1].Name, Mode=OneWay}"
-                       VerticalAlignment="Top"
-                       FontSize="18"
-                       Margin="5,7.5" />
-        </StackPanel>
-        <StackPanel Grid.Row="1"
-                    Margin="0,145"
-                    Orientation="Horizontal">
-            <Button Style="{StaticResource ButtonTemplate}">
-                <materialDesign:PackIcon Kind="TextBoxMultipleOutline"
-                                         VerticalAlignment="Top" />
-            </Button>
-            <TextBlock Text="{Binding Words[2].Name, Mode=OneWay}"
-                       VerticalAlignment="Top"
-                       FontSize="18"
-                       Margin="5,7.5" />
+            <ListView>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Human"
+                                                 Margin="10" />
+                        <TextBlock Text="Categorias"
+                                   VerticalAlignment="Center"
+                                   FontSize="18"
+                                   Width="{Binding ListViewSize}"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="TextBoxMultipleOutline"
+                                                 Margin="10" />
+                        <TextBlock Text="Produtos"
+                                   VerticalAlignment="Center"
+                                   FontSize="18"
+                                   Width="{Binding ListViewSize}" />
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
         </StackPanel>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
@@ -62,7 +69,7 @@
                 <materialDesign:PackIcon Kind="Add"
                                          VerticalAlignment="Top"
                                          Height="25"
-                                         Width="25"/>
+                                         Width="25" />
             </Button>
             <Button Style="{StaticResource ButtonTemplate}"
                     Height="30"
@@ -88,11 +95,11 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <StackPanel Grid.Column="1"
-                        Margin="5">
-                <TextBox Text="{Binding Words[0].Name, Mode=OneWay}"
+                        Margin="30">
+                <TextBox Text="Utilizadores"
                          BorderThickness="0"
                          HorizontalAlignment="Center"
-                         VerticalAlignment="Top"
+                         VerticalAlignment="Center"
                          FontSize="20">
                 </TextBox>
             </StackPanel>
@@ -101,10 +108,19 @@
                         Margin="50">
                 <DataGrid x:Name="ManagementDataGrid"
                           Foreground="Green"
-                          ItemsSource="{Binding Sellers}"
-                          AutoGenerateColumns="True"
-                          AutoGeneratingColumn="OnAutoGeneratingColumn"
-                          ColumnWidth="*">
+                          ColumnWidth="*"
+                          ItemsSource="{Binding Users}"
+                          AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nome"
+                                            Binding="{Binding Name, Mode=OneWay}" />
+                        <DataGridTextColumn Header="Idade"
+                                            Binding="{Binding Age, Mode=OneWay}" />
+                        <DataGridTextColumn Header="Contacto"
+                                            Binding="{Binding Phone, Mode=OneWay}" />
+                        <DataGridCheckBoxColumn Header="Admin?"
+                                                Binding="{Binding IsAdmin, Mode=OneWay}" />
+                    </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
         </Grid>

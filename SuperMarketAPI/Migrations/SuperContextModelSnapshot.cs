@@ -62,42 +62,29 @@ namespace SuperMarketAPI.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("SuperMarketAPI.Data.Seller", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SellerAge")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SellerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SellerPass")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("SellerPhone")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("Sellers");
-                });
-
             modelBuilder.Entity("SuperMarketAPI.Data.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserName")
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserPassword")
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.Property<int>("Phone")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
@@ -113,25 +100,9 @@ namespace SuperMarketAPI.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("SuperMarketAPI.Data.Seller", b =>
-                {
-                    b.HasOne("SuperMarketAPI.Data.User", "User")
-                        .WithOne("Seller")
-                        .HasForeignKey("SuperMarketAPI.Data.Seller", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("SuperMarketAPI.Data.Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("SuperMarketAPI.Data.User", b =>
-                {
-                    b.Navigation("Seller");
                 });
 #pragma warning restore 612, 618
         }
